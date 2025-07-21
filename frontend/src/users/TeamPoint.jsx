@@ -29,7 +29,7 @@ function TeamPoint() {
   }, []);
   return (
     <>
-      <div className="p-6 bg-[#FADFA1] mt-10 flex justify-center">
+      <div id="total-point" className="p-6 bg-[#FADFA1] mt-10 flex justify-center">
         <div className=" w-full lg:w-2/3">
           <h1 className="text-4xl text-center font-bold mb-6 text-black">{` ${
             afterCount == 10001 ? "Final Result" : `After ${afterCount}`

@@ -4,8 +4,10 @@ import {
   FaVideo,
   FaTrophy,
   FaInfoCircle,
+  FaImages,
   FaChartBar,
 } from "react-icons/fa";
+
 import { TiThMenu } from "react-icons/ti"; // Menu icon
 import UserSide from "./UserSide";
 
@@ -65,21 +67,62 @@ export default function RightSidebarLayout() {
               📂 Menu
             </h2>
             <ul className="space-y-4">
-              <li className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-100 text-gray-800 hover:text-blue-600 cursor-pointer transition-colors duration-200">
-                <FaHome /> Home
+              <li>
+                <a
+                  href="#home"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-100 text-gray-800 hover:text-blue-600 transition-colors duration-200"
+                >
+                  <FaHome /> Home
+                </a>
               </li>
-              <li className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-100 text-gray-800 hover:text-blue-600 cursor-pointer transition-colors duration-200">
-                <FaVideo /> Videos
+              <li>
+                <a
+                  href="#videos"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-100 text-gray-800 hover:text-blue-600 transition-colors duration-200"
+                >
+                  <FaVideo /> Videos
+                </a>
               </li>
-              <li className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-100 text-gray-800 hover:text-blue-600 cursor-pointer transition-colors duration-200">
-                <FaTrophy /> Result
+              <li>
+                <a
+                  href="#results"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-100 text-gray-800 hover:text-blue-600 transition-colors duration-200"
+                >
+                  <FaTrophy /> Results
+                </a>
               </li>
-              <li className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-100 text-gray-800 hover:text-blue-600 cursor-pointer transition-colors duration-200">
-                <FaInfoCircle /> About
+                  <li>
+                <a
+                  href="#total-point"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-100 text-gray-800 hover:text-blue-600 transition-colors duration-200"
+                >
+                  <FaChartBar /> Total Point
+                </a>
               </li>
-              <li className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-100 text-gray-800 hover:text-blue-600 cursor-pointer transition-colors duration-200">
-                <FaChartBar /> Total Point
+              <li>
+                <a
+                  href="#gallery"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-100 text-gray-800 hover:text-blue-600 transition-colors duration-200"
+                >
+                 <FaImages /> Gallery
+                </a>
               </li>
+              <li>
+                <a
+                  href="#about"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-100 text-gray-800 hover:text-blue-600 transition-colors duration-200"
+                >
+                  <FaInfoCircle /> About
+                </a>
+              </li>
+          
+              
             </ul>
           </div>
         </div>

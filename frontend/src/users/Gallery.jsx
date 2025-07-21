@@ -32,7 +32,7 @@ function Gallery() {
     }, []);
 
   return (
-    <div className="container  mx-auto px-4 py-8">
+    <div id='gallery' className="container  mx-auto px-4 py-8">
        <div className='flex justify-center mb-10'>
          <h2 className="text-4xl lg:text-5xl  font-bold">
           Gallery

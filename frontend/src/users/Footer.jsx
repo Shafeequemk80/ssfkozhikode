@@ -31,7 +31,7 @@ function Footer() {
   return (
     <>
 
-      <div className="flex flex-col gap-8 py-14 mt-4 text-center w-full px-10 xl:px-56">
+      <div id="about" className="flex flex-col gap-8 py-14 mt-4 text-center w-full px-10 xl:px-56">
         <h2 className="text-4xl lg:text-5xl  font-bold">
           What's Theme
         </h2>

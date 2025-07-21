@@ -13,7 +13,7 @@ function Home() {
   };
 
   return (
-    <div
+    <div id='home'
       className="relative text-center w-full h-screen p-0 flex flex-col items-center justify-center pt-10"
     >
       {/* Background for Desktop and Mobile */}
