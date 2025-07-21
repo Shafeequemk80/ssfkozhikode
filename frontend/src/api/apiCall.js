@@ -15,6 +15,7 @@ async function checkStartProgram() {
   
   return response.data;
 }
+
 async function resetProgram() {
   const response = await axios.get(
     `${baseUrl}/resetprogram`
@@ -42,6 +43,13 @@ async function getDataServer(item, category) {
     `${baseUrl}/getresult/?item=${item}&category=${category}`
   );
  
+  return response.data;
+}
+async function getResultImage() {
+  const response = await axios.get(
+    `${baseUrl}/showImage`
+  );
+  
   return response.data;
 }
 
@@ -178,10 +186,12 @@ export {
   startProgram,
   checkforResult,
   checkStartProgram,
+
   resetProgram,
   stopProgram,
   postDataServer,
   getDataServer,
+  getResultImage,
   ImageUploadServer,
   getallresult,
   getTeamPoint,

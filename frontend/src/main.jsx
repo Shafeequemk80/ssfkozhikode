@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-d
 import "./global.css";
 import "./index.css";
 
-import UserSide from "./users/UserSide.jsx";
+import RightSidebarLayout from "./users/RightSidebarLayout.jsx";
 import AdminSide from "./admin/AddResults.jsx";
 import ImageUpload from "./admin/ImageUpload.jsx";
 import AllResult from "./admin/AllResult.jsx";
@@ -29,7 +29,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Router>
       <Routes>
-        <Route path="/" element={<UserSide />} />
+        <Route path="/" element={<RightSidebarLayout />} />
         <Route path="/gallerypage" element={<GalleryPage />} />
         <Route path="/admin/login" element={isAdminLoggedIn?<Navigate to={'/admin'}/>: <Login />} />
         <Route
