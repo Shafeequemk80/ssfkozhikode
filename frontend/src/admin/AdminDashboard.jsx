@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { FaImage, FaClipboardList, FaUsers, FaListAlt, FaSignOutAlt, FaHome, FaImages, FaLayerGroup, FaEnvelopeOpenText } from "react-icons/fa";
+import { FaImage, FaClipboardList, FaUsers, FaListAlt, FaSignOutAlt, FaHome, FaImages, FaLayerGroup, FaEnvelopeOpenText, FaVideo } from "react-icons/fa";
 import { MdOutlinePowerSettingsNew } from "react-icons/md";
 import { GrGallery } from "react-icons/gr";
 
@@ -16,6 +16,8 @@ function AdminDashboard() {
     { title: "All Results", icon: <FaListAlt />, color: "bg-violet-500", path: "/admin/allresult" },
     { title: "Add Team Point", icon: <FaUsers />, color: "bg-amber-500", path: "/admin/addteampoint" },
     { title: "Add Brochure", icon: <FaImages />, color: "bg-rose-500", path: "/admin/addbrochure" },
+    { title: "Add Theme", icon: <FaEnvelopeOpenText />, color: "bg-pink-500", path: "/admin/addtheme" },
+    { title: "Add Videos", icon: <FaVideo />, color: "bg-pink-500", path: "/admin/addtheme" },
     { title: "Add Theme", icon: <FaEnvelopeOpenText />, color: "bg-pink-500", path: "/admin/addtheme" },
   ];
   
