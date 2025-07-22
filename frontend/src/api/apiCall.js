@@ -180,13 +180,41 @@ async function get3fromGallery() {
   const response = await axios.delete(`${baseUrl}/delete-gallery/${id}`);
   return response.data;
 }
+async function getYoutubeLink() {
+  const response = await axios.get(`${baseUrl}/getvideo`);
+  return response.data;
+}
+async function addYoutubeLink(url) {
+  const response = await axios.post(`${baseUrl}/addvideo`,url);
+  return response.data;
+}
+
+async function deleteYoutubeLink(id) {
+  const response = await axios.delete(`${baseUrl}/delete-videolink/${id}`);
+  return response.data;
+}
+
+
+async function get3YoutubeLink() {
+  const response = await axios.get(`${baseUrl}/get3video`);
+  return response.data;
+}
+
+async function saveLiveLink(lives) {
+  console.log(lives,'sdfasd');
+  const response = await axios.post(`${baseUrl}/savelivelink`,lives);
+  return response.data;
+}
+async function getlivelink() {
+  const response = await axios.get(`${baseUrl}/getlivelink`);
+  return response.data;
+}
 
 export {
   baseUrl,
   startProgram,
   checkforResult,
   checkStartProgram,
-
   resetProgram,
   stopProgram,
   postDataServer,
@@ -208,5 +236,11 @@ export {
   addToGallery,
   getGallery,
   deleteGalleryImage,
-  get3fromGallery
-};
+  get3fromGallery,
+  getYoutubeLink,
+  addYoutubeLink,
+  deleteYoutubeLink,
+  get3YoutubeLink,
+  saveLiveLink,
+  getlivelink
+};  

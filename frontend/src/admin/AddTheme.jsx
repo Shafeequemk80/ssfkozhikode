@@ -6,7 +6,7 @@ import toast, { Toaster } from 'react-hot-toast'
 
 function AddTheme() {
   const [description, setDescription] = useState('')
-  const maxLength = 1500
+  const maxLength = 10000 
 
   useEffect(() => {
     async function fetchData() {

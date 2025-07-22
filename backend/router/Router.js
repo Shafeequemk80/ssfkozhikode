@@ -9,6 +9,7 @@ const categoryController = require("../Controller/categoryController.js");
 const itemController = require("../Controller/itemController.js");
 const checkProgramStarted = require("../middleware/program.js");
 const { saveGalleryImage, getAllImages, deleteGalleryImage, get3Images } = require("../Controller/galleryController.js");
+const videoController = require("../Controller/videoController.js");
 
 router.get("/startprogram", dataController.startProgram);
 router.get("/checkstatprogram", dataController.checkStartProgram);
@@ -58,5 +59,18 @@ router.post("/upload-gallery", multer.galleryImagesUpload, saveGalleryImage);
 router.get("/get-gallery", getAllImages);
 router.get("/get3-gallery", get3Images);
 router.delete("/delete-gallery/:id", deleteGalleryImage);
+
+//videos
+router.get('/getvideo',videoController.getYoutube)
+router.post('/addvideo',videoController.addYoutube)
+router.delete('/delete-videolink/:id',videoController.deleteYoutube)
+router.get('/get3video',videoController.get4Youtube)
+
+
+//live
+
+
+router.get("/getlivelink", videoController.getLiveStreams);
+router.post("/savelivelink", videoController.updateLiveStreams);
 
 module.exports = router;

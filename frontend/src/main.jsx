@@ -22,6 +22,7 @@ import AddResults from "./admin/AddResults.jsx";
 import GalleryPage from "./users/GalleryPage.jsx";
 import AddGallery from "./admin/AddGallery.jsx";
 import GalleryUpaloader from "./admin/GalleryUpaloader.jsx";
+import AddYoutubeLink from "./admin/AddYoutubeLink.jsx";
 
 const isAdminLoggedIn = localStorage.getItem("isAdminLoggedIn");
 
@@ -126,6 +127,14 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           element={
             <ProtectedRoute>
               <AddGallery/>
+            </ProtectedRoute>
+          }
+        />
+          <Route
+          path="admin/addvideos"
+          element={
+            <ProtectedRoute>
+              <AddYoutubeLink/>
             </ProtectedRoute>
           }
         />

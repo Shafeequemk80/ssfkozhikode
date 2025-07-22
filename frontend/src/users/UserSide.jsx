@@ -15,6 +15,7 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 import VideoLink from "./VideoLink.jsx";
 import Results from "./Results.jsx";
 import Layout from "./RightSidebarLayout.jsx";
+import VideoShow from "./VideoShow.jsx";
 
 function UserSide() {
   const [buttonShow, setButtonShow] = useState(false);
@@ -44,9 +45,9 @@ function UserSide() {
   return (
     <>
       <Home />
-      <VideoLink />
+      {/* <VideoLink />
+   <VideoShow/>
       <Results />
-
       <TeamPoint />
       <Gallery />
       <div className="flex justify-center">
@@ -69,7 +70,7 @@ function UserSide() {
           ></span>
         </button>
       )}
-      <Toaster />
+      <Toaster /> */}
     </>
   );
 }

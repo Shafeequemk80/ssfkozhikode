@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { FaImage, FaClipboardList, FaUsers, FaListAlt, FaSignOutAlt, FaHome, FaImages, FaLayerGroup, FaEnvelopeOpenText, FaVideo } from "react-icons/fa";
-import { MdOutlinePowerSettingsNew } from "react-icons/md";
+import { MdOutlinePowerSettingsNew,MdDashboardCustomize } from "react-icons/md";
 import { GrGallery } from "react-icons/gr";
 
 function AdminDashboard() {
@@ -16,9 +16,11 @@ function AdminDashboard() {
     { title: "All Results", icon: <FaListAlt />, color: "bg-violet-500", path: "/admin/allresult" },
     { title: "Add Team Point", icon: <FaUsers />, color: "bg-amber-500", path: "/admin/addteampoint" },
     { title: "Add Brochure", icon: <FaImages />, color: "bg-rose-500", path: "/admin/addbrochure" },
-    { title: "Add Theme", icon: <FaEnvelopeOpenText />, color: "bg-pink-500", path: "/admin/addtheme" },
-    { title: "Add Videos", icon: <FaVideo />, color: "bg-pink-500", path: "/admin/addtheme" },
-    { title: "Add Theme", icon: <FaEnvelopeOpenText />, color: "bg-pink-500", path: "/admin/addtheme" },
+    {title: "Add Theme",icon: <FaEnvelopeOpenText />,color: "bg-purple-500", path: "/admin/addtheme"},
+    {title: "Add Videos",icon: <FaVideo />, color: "bg-blue-500", path: "/admin/addvideos"},
+    {title: "Customize",icon: <MdDashboardCustomize />,color: "bg-green-500", path: "/admin/addtheme"}
+
+
   ];
   
   
