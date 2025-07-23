@@ -12,9 +12,9 @@ function TeamPoint() {
       try {
         const response = await getTeamPoint();
         // Check if response.data[0] is an array before setting state
-        if (Array.isArray(response.data.sortedResults)) {
-          setTeampoint(response.data.sortedResults);
-          setAfterCount(response.data.afterCount);
+        if (Array.isArray(response?.data?.sortedResults)) {
+          setTeampoint(response?.data?.sortedResults);
+          setAfterCount(response?.data?.afterCount);
           // toast.success("Team Points fetched successfully", { id: toastId });
         } else {
           // toast.error("No data found", { id: toastId });

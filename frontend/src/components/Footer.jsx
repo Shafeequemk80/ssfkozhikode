@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-function UnderFooter() {
+function Footer() {
 
   return (
     <footer className=" bottom-0 left-0 w-full px-5 md:px-10 lg:px-10 xl:px-36 bg-[#151622] flex flex-col items-center justify-center">
@@ -14,4 +14,4 @@ function UnderFooter() {
   )
 }
 
-export default UnderFooter;
+export default Footer;

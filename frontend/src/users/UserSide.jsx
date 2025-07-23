@@ -1,40 +1,57 @@
 import React, { useState, useEffect } from "react";
-
 import toast, { Toaster } from "react-hot-toast";
-import Footer from "./Footer.jsx";
-
-import axios from "axios";
 
 import Home from "./Home.jsx";
 import Carousel from "./Carousel.jsx";
 import TeamPoint from "./TeamPoint.jsx";
-
 import Gallery from "./Gallery.jsx";
-import { useNavigate } from "react-router-dom";
-import { FaLongArrowAltRight } from "react-icons/fa";
 import VideoLink from "./VideoLink.jsx";
 import Results from "./Results.jsx";
-import Layout from "./RightSidebarLayout.jsx";
 import VideoShow from "./VideoShow.jsx";
+import Theme from "./theme.jsx";
+import Footer from "../components/Footer.jsx";
+
+import { getFeatures } from "../api/apiCall.js";
 
 function UserSide() {
   const [buttonShow, setButtonShow] = useState(false);
-  const navigate = useNavigate();
+  const [features, setFeatures] = useState([]);
 
+  // Fetch features from API
   useEffect(() => {
-    const handleScroll = () => {
-      // Check if the screen height is greater than 500px and scroll position is more than 100px
-      if (window.scrollY > 100) {
-        setButtonShow(true);
-      } else {
-        setButtonShow(false);
+    const fetchFeatures = async () => {
+      try {
+        const result = await toast.promise(getFeatures(), {
+          // loading: "Loading features...",
+          // success: "Features loaded ✅",
+          // error: "Failed to load features ❌",
+        });
+        setFeatures(result || []);
+      } catch (error) {
+        console.error("Error fetching features:", error);
+        toast.error("Something went wrong while fetching features.");
       }
     };
 
-    // Add the scroll event listener
-    window.addEventListener("scroll", handleScroll);
+    fetchFeatures();
+  }, []);
 
-    // Clean up the event listener on component unmount
+  // Mapping of feature keys to components
+  const featureComponents = {
+    results: <Results />,
+    live: <VideoLink />,
+    videos: <VideoShow />,
+    teamPoints: <TeamPoint />,
+    gallery: <Gallery />,
+    theme: <Theme />,
+  };
+
+  // Show scroll-to-top button logic
+  useEffect(() => {
+    const handleScroll = () => {
+      setButtonShow(window.scrollY > 100);
+    };
+    window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -42,27 +59,26 @@ function UserSide() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  // Helper to check if a feature is enabled
+  const isFeatureEnabled = (key) =>
+    features.some((feature) => feature.name === key && feature.enabled);
+
   return (
     <>
       <Home />
-      {/* <VideoLink />
-   <VideoShow/>
-      <Results />
-      <TeamPoint />
-      <Gallery />
-      <div className="flex justify-center">
-        <p
-          onClick={() => navigate("/gallerypage")}
-          className="text-blue-500 flex items-center gap-2 cursor-pointer hover:underline"
-        >
-          See more Images <FaLongArrowAltRight />
-        </p>
+
+      <div>
+        {Object.entries(featureComponents).map(([key, Component]) =>
+          isFeatureEnabled(key) ? <div key={key}>{Component}</div> : null
+        )}
       </div>
+
       <Footer />
+
       {buttonShow && (
         <button
           onClick={scrollToTop}
-          className="flex items-center justify-center z-50 fixed bottom-10 right-10  size-11 bg-[#e8002c] text-white rounded-full"
+          className="fixed bottom-10 right-10 z-50 flex size-11 items-center justify-center rounded-full bg-[#e8002c] text-white"
         >
           <span
             className="iconify text-xl lg:text-2xl"
@@ -70,7 +86,8 @@ function UserSide() {
           ></span>
         </button>
       )}
-      <Toaster /> */}
+
+    
     </>
   );
 }

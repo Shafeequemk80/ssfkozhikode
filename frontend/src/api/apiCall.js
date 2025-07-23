@@ -209,6 +209,18 @@ async function getlivelink() {
   const response = await axios.get(`${baseUrl}/getlivelink`);
   return response.data;
 }
+async function getFeatures() {
+  const response = await axios.get(`${baseUrl}/get-feature`);
+  return response.data;
+}
+async function resetFeature() {
+  const response = await axios.get(`${baseUrl}/reset-feature`);
+  return response.data;
+}
+async function setfeature(data) {
+  const response = await axios.patch(`${baseUrl}/feature-update`,data);
+  return response.data;
+}
 
 export {
   baseUrl,
@@ -242,5 +254,8 @@ export {
   deleteYoutubeLink,
   get3YoutubeLink,
   saveLiveLink,
-  getlivelink
+  getlivelink,
+  getFeatures,
+  resetFeature,
+  setfeature
 };  

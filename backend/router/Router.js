@@ -73,4 +73,16 @@ router.get('/get3video',videoController.get4Youtube)
 router.get("/getlivelink", videoController.getLiveStreams);
 router.post("/savelivelink", videoController.updateLiveStreams);
 
+
+//feature
+
+
+// ✅ GET all features
+router.get("/get-feature", dataController.getFeature);
+router.get("/reset-feature", dataController.resetFeature);
+
+// ✅ PATCH: Toggle feature (enable/disable)
+router.patch("/feature-update",dataController.featureUpdate );
+
+
 module.exports = router;

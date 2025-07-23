@@ -21,12 +21,12 @@ function VideoShow() {
   }, []);
 
   return (
-    <div  className='flex justify-center'>
-        
+    <div  className='flex items-center justify-center h-[300px] '>
+
       {savedLink.length > 0 && (
-              <div className="mt-6 w-full h-auto ">
+              <div className="mt-6 w-full ">
                 
-                <div className="grid grid-cols-1 p-10 md:p-0 md:grid-cols-4  gap-6">
+                <div className="grid grid-cols-1 p-10 md:p-4 md:grid-cols-4  gap-6">
                   {savedLink.map((link, index) => {
                     const match = link.url.match(
                       /(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([\w-]{11})/
@@ -64,6 +64,8 @@ function VideoShow() {
                 </div>
               </div>
             )}
+
+            
     </div>
   )
 }

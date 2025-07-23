@@ -3,7 +3,7 @@ import { resetProgram, startProgram,stopProgram } from '../api/apiCall';
 import Swal from "sweetalert2";
 import { steps } from '../data';
 import toast, { Toaster } from 'react-hot-toast';
-import UnderFooter from '../components/UnderFooter';
+import UnderFooter from '../components/Footer';
 
 function StartProgram() {
     

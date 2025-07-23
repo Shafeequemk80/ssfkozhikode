@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { FaImage, FaClipboardList, FaUsers, FaListAlt, FaSignOutAlt, FaHome, FaImages, FaLayerGroup, FaEnvelopeOpenText, FaVideo } from "react-icons/fa";
 import { MdOutlinePowerSettingsNew,MdDashboardCustomize } from "react-icons/md";
 import { GrGallery } from "react-icons/gr";
+import { Toaster } from "react-hot-toast";
 
 function AdminDashboard() {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ function AdminDashboard() {
     { title: "Add Brochure", icon: <FaImages />, color: "bg-rose-500", path: "/admin/addbrochure" },
     {title: "Add Theme",icon: <FaEnvelopeOpenText />,color: "bg-purple-500", path: "/admin/addtheme"},
     {title: "Add Videos",icon: <FaVideo />, color: "bg-blue-500", path: "/admin/addvideos"},
-    {title: "Customize",icon: <MdDashboardCustomize />,color: "bg-green-500", path: "/admin/addtheme"}
+    {title: "Customize",icon: <MdDashboardCustomize />,color: "bg-green-500", path: "/admin/featuretoggle"}
 
 
   ];
@@ -33,6 +34,7 @@ function AdminDashboard() {
   };
 
   return (
+    <>
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
       <div className="container mx-5 md:mx-52   px-4 py-8 ">
         <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">Admin Dashboard</h2>
@@ -83,6 +85,8 @@ function AdminDashboard() {
         </div>
       </div>
     </div>
+      <Toaster />
+      </>
   );
 }
 

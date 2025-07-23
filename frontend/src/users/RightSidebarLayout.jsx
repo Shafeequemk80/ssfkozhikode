@@ -10,11 +10,13 @@ import {
 
 import { TiThMenu } from "react-icons/ti"; // Menu icon
 import UserSide from "./UserSide";
+import { useNavigate } from "react-router-dom";
 
 export default function RightSidebarLayout() {
   const [isOpen, setIsOpen] = useState(false);
   const sidebarRef = useRef(null);
 
+  const navigate = useNavigate()
   // Close sidebar when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -114,8 +116,9 @@ export default function RightSidebarLayout() {
               </li>
               <li>
                 <a
-                  href="#about"
-                  onClick={() => setIsOpen(false)}
+                  href=""
+                  onClick={() => {setIsOpen(false) ,navigate("/about")}}
+
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-100 text-gray-800 hover:text-blue-600 transition-colors duration-200"
                 >
                   <FaInfoCircle /> About

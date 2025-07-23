@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { get3fromGallery, getGallery } from '../api/apiCall';
+import { useNavigate } from 'react-router-dom';
+import { FaArrowRight } from "react-icons/fa6";
 
 function Gallery() {
   // const images = [
@@ -13,6 +15,7 @@ function Gallery() {
 
 
       const [images, setImages] = useState([]);
+       const navigate = useNavigate();
     useEffect(() => {
       // Define async function inside useEffect
       async function fetchData() {
@@ -48,6 +51,14 @@ function Gallery() {
             />
           </div>
         ))}
+      </div>
+        <div className="flex justify-center">
+        <p
+          onClick={() => navigate("/gallerypage")}
+          className="text-blue-500 flex items-center gap-2 cursor-pointer hover:underline"
+        >
+          See more Images <FaArrowRight />
+        </p>
       </div>
     </div>
   );

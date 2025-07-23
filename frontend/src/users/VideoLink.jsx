@@ -12,7 +12,7 @@ function VideoLink() {
       try {
         const response = await getlivelink();
         if (response && response?.data?.live1 && response?.data?.live2) {
-          console.log(response);
+         
           
 setLives([
     { url: convertToEmbedUrl(response.data.live1.url) },
@@ -40,7 +40,7 @@ const convertToEmbedUrl = (url) => {
 
   
   return (
-    <div id="videos" className="flex flex-col items-center pt-6 pb-10 bg-black min-h-screen">
+    <div id="videos" className="flex flex-col items-center pt-6 pb-10 bg-black ">
       <h2 className="py-5 md:py-10 text-4xl lg:text-5xl text-white font-bold">Videos</h2>
       <h2 className="text-xl text-white font-semibold mb-4">{stage}</h2>
 

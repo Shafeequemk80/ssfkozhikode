@@ -23,7 +23,8 @@ import GalleryPage from "./users/GalleryPage.jsx";
 import AddGallery from "./admin/AddGallery.jsx";
 import GalleryUpaloader from "./admin/GalleryUpaloader.jsx";
 import AddYoutubeLink from "./admin/AddYoutubeLink.jsx";
-
+import AboutPage from "./admin/AboutPage.jsx";
+import FeatureToggle from "./admin/FeatureToggle.jsx";
 const isAdminLoggedIn = localStorage.getItem("isAdminLoggedIn");
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -31,6 +32,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Router>
       <Routes>
         <Route path="/" element={<RightSidebarLayout />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/gallerypage" element={<GalleryPage />} />
         <Route path="/admin/login" element={isAdminLoggedIn?<Navigate to={'/admin'}/>: <Login />} />
         <Route
@@ -135,6 +137,14 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           element={
             <ProtectedRoute>
               <AddYoutubeLink/>
+            </ProtectedRoute>
+          }
+        />
+          <Route
+          path="admin/featuretoggle"
+          element={
+            <ProtectedRoute>
+              <FeatureToggle/>
             </ProtectedRoute>
           }
         />

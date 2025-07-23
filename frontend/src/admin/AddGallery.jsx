@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import UnderFooter from '../components/UnderFooter';
+import UnderFooter from '../components/Footer';
 import { getGallery ,deleteGalleryImage} from '../api/apiCall';
 import GalleryUpaloader from './GalleryUpaloader';
 import { MdDelete } from "react-icons/md";

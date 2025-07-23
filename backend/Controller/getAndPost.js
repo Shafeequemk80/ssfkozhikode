@@ -8,6 +8,7 @@ const startProgramModel = require("../models/startProgram");
 const AddBrochureModel = require("../models/Brochure");
 const Team = require("../models/Team");
 const addDescriptionModel = require("../models/ThemeModel");
+const Feature  = require("../models/featureSchema");
 // Update the image record
 
 const cloudinary = require("cloudinary").v2;
@@ -376,6 +377,64 @@ const getTeamPoint = async (req, res) => {
   }
 };
 
+const featureUpdate= async (req, res) => {
+ 
+  console.log(req.body);
+  const { name,enabled } = req.body;
+  
+
+  if (typeof enabled !== "boolean") {
+    return res.status(400).json({ message: "`enabled` must be a boolean" });
+  }
+
+ try {
+    const updatedFeature = await Feature.findOneAndUpdate(
+      { name },
+      { enabled },
+      { new: true, upsert: true } // Create if not exists
+    );
+
+    res.status(200).json(updatedFeature);
+  } catch (error) {
+    error.message
+    res.status(500).json({ message: "Failed to update feature", error });
+  }
+}
+
+const getFeature=async (req, res) => {
+  try {
+    const features = await Feature.find();
+    res.status(200).json(features);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to fetch features", error });
+  }
+}
+const resetFeature = async (req, res) => {
+  try {
+    // Clear all existing features
+    await Feature.deleteMany();
+
+    // Insert default features
+    const defaultFeatures = await Feature.insertMany([
+      { name: "results", enabled: true },
+      { name: "videos", enabled: true },
+      { name: "live", enabled: true },
+      { name: "teamPoints", enabled: true },
+      { name: "gallery", enabled: true },
+      { name: "theme", enabled: false },
+    ]);
+
+    res.status(200).json({
+      message: "Features reset successfully",
+      features: defaultFeatures,
+    });
+  } catch (error) {
+    console.log(error.message);
+    
+    res.status(500).json({ message: "Failed to reset features", error });
+  }
+};
+
 module.exports = {
   startProgram,
   checkStartProgram,
@@ -388,5 +447,8 @@ module.exports = {
   allResult,
   saveTeamPoint,
   getTeamPoint,
+  featureUpdate,
+  getFeature,
+  resetFeature
   
 };
