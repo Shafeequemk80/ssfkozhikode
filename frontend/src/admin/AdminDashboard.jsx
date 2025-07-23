@@ -1,10 +1,12 @@
-import React from "react";
+
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import { FaImage, FaClipboardList, FaUsers, FaListAlt, FaSignOutAlt, FaHome, FaImages, FaLayerGroup, FaEnvelopeOpenText, FaVideo } from "react-icons/fa";
 import { MdOutlinePowerSettingsNew,MdDashboardCustomize } from "react-icons/md";
 import { GrGallery } from "react-icons/gr";
 import { Toaster } from "react-hot-toast";
-
+import { AuthContext } from "../context/AuthContext";
+import { useContext } from "react";
 function AdminDashboard() {
   const navigate = useNavigate();
   const cards = [
@@ -26,12 +28,24 @@ function AdminDashboard() {
   
   
 
-  const handleLogout = () => {
-   const log= localStorage.removeItem("isAdminLoggedIn");
-   if(!log){
-     navigate("/admin/login");
-   }
-  };
+const { setIsAdminLoggedIn } = useContext(AuthContext);
+
+const handleLogout = () => {
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You will be logged out of the admin panel.",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, logout!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      setIsAdminLoggedIn(false);
+      navigate("/admin/login");
+    }
+  });
+};
 
   return (
     <>

@@ -1,10 +1,9 @@
-// src/ProtectedRoute.jsx
-import React from "react";
+import { useContext } from "react";
 import { Navigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext"; // adjust path
 
 const ProtectedRoute = ({ children }) => {
-  const isAdminLoggedIn = localStorage.getItem("isAdminLoggedIn");
-
+  const { isAdminLoggedIn } = useContext(AuthContext);
   return isAdminLoggedIn ? children : <Navigate to="/admin/login" />;
 };
 

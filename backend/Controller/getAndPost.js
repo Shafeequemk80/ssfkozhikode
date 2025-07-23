@@ -114,17 +114,27 @@ const resetProgram = async (req, res) => {
 
 const checkStartProgram = async (req, res) => {
   try {
-    const program = await startProgramModel.findOne();
+    let program = await startProgramModel.findOne();
+
+    if (!program) {
+      // Create initial document with startProgram: false
+      program = await startProgramModel.create({});
+      console.log('Initial StartProgram document created');
+    } else {
+      console.log('StartProgram document already exists');
+    }
+
     console.log(program);
 
     res.status(200).json({
       success: program.startProgram,
     });
   } catch (error) {
-    console.error("Error starting program:", error);
+    console.error("Error checking program status:", error);
     res.status(500).json({ success: false, message: "Server error" });
   }
 };
+
 
 const getData = async (req, res) => {
   try {

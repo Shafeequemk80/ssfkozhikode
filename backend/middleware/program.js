@@ -4,6 +4,7 @@ const checkProgramStarted = async (req, res, next) => {
   try {
     const program = await startProgramModel.findOne();
 
+    // Create initial document with startProgram: false
     if (program && program.startProgram === false) {
       // Program is started, proceed to next middleware or route
       next();
