@@ -66,7 +66,7 @@ const resetFeatures = async () => {
         error: "Reset failed ❌",
       }
     );
-    setFeatures(res);
+    setFeatures(res.features);
   } catch (error) {
     console.error("Reset features failed:", error);
   }
