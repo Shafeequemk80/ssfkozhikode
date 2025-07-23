@@ -8,10 +8,9 @@ import Gallery from "./Gallery.jsx";
 import VideoLink from "./VideoLink.jsx";
 import Results from "./Results.jsx";
 import VideoShow from "./VideoShow.jsx";
-import Theme from "./theme.jsx";
 import Footer from "../components/Footer.jsx";
-
 import { getFeatures } from "../api/apiCall.js";
+import Theme from "./theme.jsx";
 
 function UserSide() {
   const [buttonShow, setButtonShow] = useState(false);
@@ -43,7 +42,7 @@ function UserSide() {
     videos: <VideoShow />,
     teamPoints: <TeamPoint />,
     gallery: <Gallery />,
-    theme: <Theme />,
+    theme: <Theme/>,
   };
 
   // Show scroll-to-top button logic
