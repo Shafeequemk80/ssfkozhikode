@@ -7,7 +7,7 @@ function Theme() {
     async function fetchData() {
       try {
         const responce = await getDescription();
-        setDescription(responce.data);
+        setDescription(responce?.data);
         toast.success(`Yes, ${responce.message}}`);
       } catch (error) {}
     }

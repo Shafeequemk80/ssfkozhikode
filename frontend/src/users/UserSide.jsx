@@ -10,7 +10,9 @@ import Results from "./Results.jsx";
 import VideoShow from "./VideoShow.jsx";
 import Footer from "../components/Footer.jsx";
 import { getFeatures } from "../api/apiCall.js";
-import Theme from "./theme.jsx";
+import { zIndex } from "html2canvas/dist/types/css/property-descriptors/z-index.js";
+import Theme from "./Theme.jsx";
+
 
 function UserSide() {
   const [buttonShow, setButtonShow] = useState(false);
