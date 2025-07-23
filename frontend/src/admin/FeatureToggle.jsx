@@ -75,45 +75,49 @@ const resetFeatures = async () => {
 
 
   return (
-    <>
-    <div className="p-6 max-w-4xl mx-auto">
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-bold text-gray-800">🛠️ Feature Control Panel</h2>
-        <button
-          onClick={resetFeatures}
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded shadow"
-        >
-          <FiRefreshCw /> Reset Features
-        </button>
-      </div>
-
-      {loading ? (
-        <p className="text-center text-gray-500">Loading features...</p>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {features.map((feature) => (
-            <div
-              key={feature.name}
-              className="flex justify-between items-center p-4 border rounded-lg shadow-md bg-white hover:shadow-lg transition"
-            >
-              <span className="capitalize text-lg font-medium text-gray-800">
-                {feature.name}
-              </span>
-              <button
-                onClick={() => updateFeature(feature.name, feature.enabled)}
-                className={`px-4 py-1 rounded text-white transition font-semibold ${
-                  feature.enabled ? "bg-green-500 hover:bg-green-600" : "bg-gray-400 hover:bg-gray-500"
-                }`}
-              >
-                {feature.enabled ? "Disable" : "Enable"}
-              </button>
-            </div>
-          ))}
-        </div>
-      )}
+  <>
+  <div className="max-w-4xl mx-auto px-4 py-8">
+    <div className="flex items-center justify-between mb-6">
+      <h2 className="text-2xl font-semibold text-gray-900">🛠️ Feature Control Panel</h2>
+      <button
+        onClick={resetFeatures}
+        className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition"
+      >
+        <FiRefreshCw className="text-lg" />
+        Reset
+      </button>
     </div>
-    <Toaster/>
-    </>
+
+    {loading ? (
+      <p className="text-center text-gray-500">Loading features...</p>
+    ) : (
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {features.map((feature) => (
+          <div
+            key={feature.name}
+            className="flex justify-between items-center px-4 py-3 border border-gray-200 rounded-lg bg-white shadow-sm hover:shadow-md transition"
+          >
+            <span className="capitalize text-base font-medium text-gray-800">
+              {feature.name}
+            </span>
+            <button
+              onClick={() => updateFeature(feature.name, feature.enabled)}
+              className={`px-4 py-1.5 text-sm font-medium rounded-md transition ${
+                feature.enabled
+                  ? "bg-green-500 hover:bg-green-600 text-white"
+                  : "bg-gray-300 hover:bg-gray-400 text-gray-800"
+              }`}
+            >
+              {feature.enabled ? "Disable" : "Enable"}
+            </button>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+  <Toaster />
+</>
+
   );
 }
 

@@ -9,6 +9,7 @@ const AddBrochureModel = require("../models/Brochure");
 const Team = require("../models/Team");
 const addDescriptionModel = require("../models/ThemeModel");
 const Feature  = require("../models/featureSchema");
+const LiveLink = require("../models/LiveModel");
 // Update the image record
 
 const cloudinary = require("cloudinary").v2;
@@ -76,13 +77,16 @@ const resetProgram = async (req, res) => {
     );
 
     // Delete all data from collections
-    const [resultDel, teamDel, pointDel, categoryDel, descDel, itemDel] = await Promise.all([
+    const [resultDel, teamDel, pointDel, categoryDel, descDel, itemDel,FeatureDel,LiveDel] = await Promise.all([
       Result.deleteMany({}),
       Team.deleteMany({}),
       TeamPoint.deleteMany({}),
       Category.deleteMany({}),
       addDescriptionModel.deleteMany({}),
       Item.deleteMany({}),
+      Feature.deleteMany({}),
+      LiveLink.deleteMany({})
+
     ]);
 
     const allSuccessful = program && 
@@ -91,7 +95,9 @@ const resetProgram = async (req, res) => {
       pointDel.acknowledged && 
       categoryDel.acknowledged && 
       descDel.acknowledged && 
-      itemDel.acknowledged;
+      itemDel.acknowledged&&
+      FeatureDel.acknowledged && 
+      LiveDel.acknowledged 
 
     if (allSuccessful) {
       res.status(200).json({

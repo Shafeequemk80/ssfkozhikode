@@ -21,11 +21,7 @@ function UserSide() {
   useEffect(() => {
     const fetchFeatures = async () => {
       try {
-        const result = await toast.promise(getFeatures(), {
-          // loading: "Loading features...",
-          // success: "Features loaded ✅",
-          // error: "Failed to load features ❌",
-        });
+        const result = await getFeatures();
         setFeatures(result || []);
       } catch (error) {
         console.error("Error fetching features:", error);
@@ -38,9 +34,9 @@ function UserSide() {
 
   // Mapping of feature keys to components
   const featureComponents = {
-    results: <Results />,
     live: <VideoLink />,
     videos: <VideoShow />,
+    results: <Results />,
     teamPoints: <TeamPoint />,
     gallery: <Gallery />,
     theme: <Theme/>,

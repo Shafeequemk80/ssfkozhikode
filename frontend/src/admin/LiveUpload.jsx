@@ -15,7 +15,7 @@ const LiveUpload = () => {
 
    const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
       const res = await  toast.promise(saveLiveLink(lives), {
       loading: "Submitting live links...",
@@ -40,7 +40,7 @@ const LiveUpload = () => {
               type="text"
               value={live.url}
               onChange={(e) => handleInputChange(index, e.target.value)}
-              placeholder={`YouTube Live ${index + 1} URL`}
+              placeholder={`YouTube Live ${index + 1} Embeded URL`}
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
@@ -50,7 +50,7 @@ const LiveUpload = () => {
         <div className="col-span-1 sm:col-span-2 flex justify-center mt-4">
           <button
             type="submit"
-            className="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-800 text-white font-semibold rounded-lg shadow-md hover:from-blue-700 hover:to-blue-900 transition duration-300"
+            className="px-6 py-3 bg-gradient-to-r from-red-600 to-red-800 text-white font-semibold rounded-lg shadow-md hover:from-red-700 hover:to-red-900 transition duration-300"
           >
             💾 Save Changes
           </button>
