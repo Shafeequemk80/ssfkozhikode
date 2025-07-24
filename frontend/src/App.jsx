@@ -32,6 +32,7 @@ import AboutPage from "./admin/AboutPage.jsx";
 import FeatureToggle from "./admin/FeatureToggle.jsx";
 
 import { AuthContext } from "./context/AuthContext.jsx";
+import VideoPage from "./users/VideoPage.jsx";
 
 function App() {
   const { isAdminLoggedIn } = useContext(AuthContext);
@@ -42,6 +43,7 @@ function App() {
         <Route path="/" element={<RightSidebarLayout />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/gallerypage" element={<GalleryPage />} />
+        <Route path="/videopage" element={<VideoPage />} />
         <Route
           path="/admin/login"
           element={

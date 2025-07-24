@@ -1,15 +1,16 @@
 import React, { useEffect, useState, useRef } from "react";
-import { get3YoutubeLink } from "../api/apiCall";
+import {  getYoutubeLink } from "../api/apiCall";
 import { useNavigate } from "react-router-dom";
+import UnderFooter from '../components/Footer';
 
-function VideoShow() {
+function VideoPage() {
   const [savedLink, setSavedLink] = useState([]);
   const iframeRefs = useRef([]);
   const navigate = useNavigate();
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await get3YoutubeLink();
+        const response = await getYoutubeLink();
         setSavedLink(response?.url || []);
       } catch (err) {
         console.error("Error fetching video links:", err.message);
@@ -52,10 +53,9 @@ function VideoShow() {
   };
 
   return (
-    <div className="bg-yellow-100 py-10">
-      <h2 className="text-4xl lg:text-5xl font-bold text-center mb-10">
-        Videos
-      </h2>
+    <>
+    <div className=" py-10 mb-20">
+      <h2 className="text-4xl lg:text-5xl font-bold text-center mb-10">Videos</h2>
 
       {savedLink.length > 0 && (
         <div className="flex justify-center">
@@ -93,40 +93,22 @@ function VideoShow() {
                       </button>
                     </div>
                   ) : (
-                    <p className="text-red-500 text-sm p-2">
-                      Invalid video link
-                    </p>
+                    <p className="text-red-500 text-sm p-2">Invalid video link</p>
                   )}
                 </div>
-              )
+              );
             })}
 
-            <div className="">
-              <button
-                onClick={() => navigate("/videopage")}
-                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-indigo-500 to-pink-500 text-white rounded-full text-sm font-medium shadow-md hover:scale-105 transition-transform"
-              >
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-                See More Videos
-              </button>
-            </div>
           </div>
+          
         </div>
       )}
     </div>
+    <div className="fixed bottom-0 w-full z-50">
+  <UnderFooter />
+</div>
+</>
   );
 }
 
-export default VideoShow;
+export default VideoPage;
