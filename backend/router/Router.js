@@ -64,7 +64,7 @@ router.delete("/delete-gallery/:id", deleteGalleryImage);
 router.get('/getvideo',videoController.getYoutube)
 router.post('/addvideo',videoController.addYoutube)
 router.delete('/delete-videolink/:id',videoController.deleteYoutube)
-router.get('/get3video',videoController.get4Youtube)
+router.get('/get3video',videoController.get3Youtube)
 
 
 //live

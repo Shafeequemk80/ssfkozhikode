@@ -69,7 +69,7 @@ const handleDelete = (indexToDelete, id) => {
 
   const isValidYoutubeUrl = (url) => {
     const pattern =
-      /^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([\w-]{11})/;
+/^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{11})/
     return pattern.test(url);
   };
 
@@ -137,7 +137,7 @@ const handleDelete = (indexToDelete, id) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {savedLink.map((link, index) => {
               const match = link.url.match(
-                /(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([\w-]{11})/
+                /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{11})/
               );
               const videoId = match ? match[1] : null;
               const embedUrl = videoId

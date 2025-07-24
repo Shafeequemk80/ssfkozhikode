@@ -36,9 +36,9 @@ function UserSide() {
   const featureComponents = {
     live: <VideoLink />,
     videos: <VideoShow />,
+    gallery: <Gallery />,
     results: <Results />,
     teamPoints: <TeamPoint />,
-    gallery: <Gallery />,
     theme: <Theme/>,
   };
 

@@ -3,8 +3,8 @@ import { saveLiveLink } from "../api/apiCall";
 import toast, { Toaster } from "react-hot-toast";
 const LiveUpload = () => {
   const [lives, setLives] = useState([
-    { url: "" }, // Live 1
-    { url: "" }, // Live 2
+    { url: null }, // Live 1
+    { url: null }, // Live 2
   ]);
 
   const handleInputChange = (index, value) => {
@@ -33,16 +33,18 @@ const LiveUpload = () => {
     <>
     
     <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
+          <h2 className="text-lg md:text-2xl w-full  mb-3 font-semibold ">
+            Upload Live Link  </h2>
       <form onSubmit={handleSubmit} className="grid gap-4 grid-cols-1 sm:grid-cols-2">
         {lives.map((live, index) => (
           <div key={index} className="col-span-1 sm:col-span-2">
             <input
               type="text"
-              value={live.url}
+              value={live.url||null}
               onChange={(e) => handleInputChange(index, e.target.value)}
               placeholder={`YouTube Live ${index + 1} Embeded URL`}
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
+              
             />
           </div>
         ))}

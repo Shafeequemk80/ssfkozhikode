@@ -33,18 +33,20 @@ const deleteYoutube = async (req, res) => {
   }
 };
 
-const get4Youtube = async (req, res) => {
-  const link = await YoutubeLink.find().limit(4).sort({ createdAt: -1 });
+const get3Youtube = async (req, res) => {
+  const link = await YoutubeLink.find().limit(3).sort({ createdAt: -1 });
   console.log(link);
   //   .sort({ "createdAt": -1 });
 
   res.json({ url: link });
 };
-
 const updateLiveStreams = async (req, res) => {
   const lives = req.body;
-  const live1 = lives[0];
-  const live2 = lives[1];
+
+  const cleanUrl = (url) => (url && url.trim() !== "" ? url : 'null');
+
+  const live1 = { url: cleanUrl(lives[0]?.url) };
+  const live2 = { url: cleanUrl(lives[1]?.url) };
 
   try {
     let existing = await LiveLink.findOne();
@@ -83,7 +85,7 @@ module.exports = {
   getYoutube,
   addYoutube,
   deleteYoutube,
-  get4Youtube,
+  get3Youtube,
   updateLiveStreams,
   getLiveStreams,
 };

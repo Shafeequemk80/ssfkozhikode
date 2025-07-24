@@ -14,8 +14,8 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    const validUsername = "admin"; // replace with your desired username
-    const validPassword = "password123"; // replace with your desired password
+    const validUsername = "ssfkozhikode"; // replace with your desired username
+    const validPassword = "Sahi@Narikkuni123"; // replace with your desired password
 
     setIsLoading(true);
     setErrorMessage("");
