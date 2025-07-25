@@ -56,7 +56,6 @@ const deleteTeam = async (req, res) => {
   const session = await mongoose.startSession();
   try {
     const { teamId } = req.params;
-    console.log(teamId);
      if (!mongoose.Types.ObjectId.isValid(teamId)) {
       console.log("Invalid Team ID");
       

@@ -16,7 +16,6 @@ const addCategory = async (req, res) => {
 
     const category = new Category({ categoryName });
     const savedCategory = await category.save();
-    console.log(savedCategory);
 
     res.status(201).json({
       data: savedCategory,
@@ -31,11 +30,9 @@ const addCategory = async (req, res) => {
   const deletecategory = async (req, res) => {
     try {
       const { categoryId } = req.params;
-      console.log(categoryId);
       
       const isItemAvailable = await Item.findOne({categoryName:categoryId})
       if(isItemAvailable){  
-        console.log( "This category added items");
 
         return res.status(404).json({ success:false,message: "This category added items" });
       }

@@ -55,7 +55,6 @@ const getItem = async (req, res) => {
 const deleteItem = async (req, res) => {
   try {
     const { itemId } = req.params;
-    console.log(itemId);
 
     // const isItemAvailable = await Item.findOne({categoryName:itemId})
     // if(isItemAvailable){

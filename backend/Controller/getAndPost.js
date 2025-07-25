@@ -125,10 +125,8 @@ const checkStartProgram = async (req, res) => {
     if (!program) {
       // Create initial document with startProgram: false
       program = await startProgramModel.create({});
-      console.log('Initial StartProgram document created');
-    } else {
-      console.log('StartProgram document already exists');
-    }
+    
+    } 
 
     console.log(program);
 

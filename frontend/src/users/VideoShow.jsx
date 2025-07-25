@@ -70,38 +70,45 @@ function VideoShow() {
                 : "";
 
               return (
-                <div
-                  key={index}
-                  className="w-full sm:w-[80%] md:w-[45%] lg:w-[30%] max-w-md border rounded shadow relative"
-                >
-                  {embedUrl ? (
-                    <div className="relative">
-                      <iframe
-                        ref={(el) => (iframeRefs.current[index] = el)}
-                        className="w-full aspect-video rounded"
-                        src={embedUrl}
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                        allowFullScreen
-                        title={`YouTube video ${index + 1}`}
-                      />
-                      <button
-                        onClick={() => handlePlay(index)}
-                        className="absolute bottom-2 right-2 bg-black text-white px-3 py-1 rounded text-sm hover:bg-gray-700"
-                      >
-                        ▶ Fullscreen
-                      </button>
-                    </div>
-                  ) : (
-                    <p className="text-red-500 text-sm p-2">
-                      Invalid video link
-                    </p>
-                  )}
-                </div>
+            <div
+  key={index}
+  className="w-full sm:w-[80%] md:w-[45%] lg:w-[30%] max-w-xs border rounded shadow relative"
+>
+  {embedUrl ? (
+    <div className="relative pt-[177.78%]"> {/* 16:9 = 56.25%, 9:16 = 177.78% */}
+      <iframe
+        ref={(el) => (iframeRefs.current[index] = el)}
+        className="absolute top-0 left-0 w-full h-full rounded"
+        src={embedUrl}
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+        allowFullScreen
+        title={`YouTube video ${index + 1}`}
+      />
+      <button
+        onClick={() => handlePlay(index)}
+        className="absolute bottom-2 right-2 bg-black text-white px-3 py-1 rounded text-sm hover:bg-gray-700"
+      >
+        ▶ Fullscreen
+      </button>
+    </div>
+  ) : (
+    <p className="text-red-500 text-sm p-2">Invalid video link</p>
+  )}
+</div>
+
               )
             })}
 
-            <div className="">
+           
+          </div>
+
+          
+        </div>
+        
+      )}
+      <div className="flex justify-center mt-5">
+         <div className="">
               <button
                 onClick={() => navigate("/videopage")}
                 className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-indigo-500 to-pink-500 text-white rounded-full text-sm font-medium shadow-md hover:scale-105 transition-transform"
@@ -122,9 +129,7 @@ function VideoShow() {
                 See More Videos
               </button>
             </div>
-          </div>
-        </div>
-      )}
+      </div>
     </div>
   );
 }

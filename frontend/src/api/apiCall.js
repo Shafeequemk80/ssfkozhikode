@@ -73,13 +73,11 @@ const options = {
 
 async function ImageUploadServer(formData) {
   try {
-    console.log(formData);
     const response = await axios.post(
       `${baseUrl}/imageUpload`,
       formData,
       options
     );
-    console.log(response);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -201,7 +199,6 @@ async function get3YoutubeLink() {
 }
 
 async function saveLiveLink(lives) {
-  console.log(lives,'sdfasd');
   const response = await axios.post(`${baseUrl}/savelivelink`,lives);
   return response.data;
 }

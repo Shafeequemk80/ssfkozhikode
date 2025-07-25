@@ -35,7 +35,6 @@ const deleteYoutube = async (req, res) => {
 
 const get3Youtube = async (req, res) => {
   const link = await YoutubeLink.find().limit(3).sort({ createdAt: -1 });
-  console.log(link);
   //   .sort({ "createdAt": -1 });
 
   res.json({ url: link });
@@ -72,7 +71,6 @@ const getLiveStreams = async (req, res) => {
 
     
     const streams = await LiveLink.findOne();
-    console.log(streams);
     
     res.json({ success: true, data: streams });
   } catch (err) {
