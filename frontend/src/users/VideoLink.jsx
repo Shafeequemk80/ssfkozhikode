@@ -55,7 +55,7 @@ function VideoLink() {
   const showSwitchButton = hasLive1 && hasLive2;
 
   return (
-    <div id="videos" className="flex flex-col items-center pt-6 pb-10 bg-black">
+    <div id="live" className="flex flex-col items-center pt-6 pb-10 bg-black">
       <h2 className="py-5 md:py-10 text-4xl lg:text-5xl text-white font-bold">
         Live Stream
       </h2>

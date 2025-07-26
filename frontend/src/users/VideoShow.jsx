@@ -52,7 +52,7 @@ function VideoShow() {
   };
 
   return (
-    <div className="bg-yellow-100 py-10">
+    <div id="videos" className="bg-yellow-100 py-10">
       <h2 className="text-4xl lg:text-5xl font-bold text-center mb-10">
         Videos
       </h2>

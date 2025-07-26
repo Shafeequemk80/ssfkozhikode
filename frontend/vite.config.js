@@ -1,7 +1,15 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [react()],
-})
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    './index.html',
+    './src/**/*.{js,jsx,ts,tsx}', // or wherever your files are
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        fractul: ['Fractul', 'sans-serif'],
+      },
+    },
+  },
+  plugins: [],
+}

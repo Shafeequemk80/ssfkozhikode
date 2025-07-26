@@ -6,7 +6,9 @@ import {
   FaInfoCircle,
   FaImages,
   FaChartBar,
+  FaMapMarkedAlt
 } from "react-icons/fa";
+import { MdLiveTv } from "react-icons/md";
 
 import { TiThMenu } from "react-icons/ti"; // Menu icon
 import UserSide from "./UserSide";
@@ -80,6 +82,15 @@ export default function RightSidebarLayout() {
               </li>
               <li>
                 <a
+                  href="#live"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-100 text-gray-800 hover:text-blue-600 transition-colors duration-200"
+                >
+                  <MdLiveTv /> Live
+                </a>
+              </li>
+              <li>
+                <a
                   href="#videos"
                   onClick={() => setIsOpen(false)}
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-100 text-gray-800 hover:text-blue-600 transition-colors duration-200"
@@ -112,6 +123,16 @@ export default function RightSidebarLayout() {
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-100 text-gray-800 hover:text-blue-600 transition-colors duration-200"
                 >
                  <FaImages /> Gallery
+                </a>
+              </li>
+              <li>
+                <a
+                  href=""
+                  onClick={() => {setIsOpen(false) ,navigate("/map")}}
+
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-100 text-gray-800 hover:text-blue-600 transition-colors duration-200"
+                >
+                  <FaMapMarkedAlt /> Map
                 </a>
               </li>
               <li>

@@ -3,12 +3,12 @@ import { FaInstagram, FaWhatsapp, FaFacebookF, FaYoutube } from 'react-icons/fa'
 
 function Footer() {
   return (
-    <footer className="bottom-0 left-0 w-full px-5 md:px-10 lg:px-10 xl:px-36 bg-[#151622] flex flex-col items-center justify-center py-6">
+    <footer className="bottom-0 left-0 w-full px-5 md:px-10 lg:px-10 xl:px-36 bg-[#151622] flex flex-col items-center justify-center py-3">
       <h1 className="text-white font-semibold text-sm lg:text-xl">
         Kozhikode South Committee
       </h1>
 
-      <div className="flex gap-5 mt-3 mb-4 text-white text-xl">
+      <div className="flex gap-5 mt-3 mb-2 text-white text-xl">
         <a
           href="https://www.instagram.com/ssfkozhikodesouth"
           target="_blank"
