@@ -39,7 +39,7 @@ function Home() {
       /> */}
 
       {/* Scroll-down button */}
-      <div className="-mt-[100px] lg:mt-20 z-10">
+      <div className="-mt-[60px] lg:mt-20 z-10">
         <button onClick={() => scrollToElement('results')}>
           <span
             className="iconify text-3xl lg:text-4xl  rounded-full p-1 animate-bounce transition-all duration-500 text-white bg-black"

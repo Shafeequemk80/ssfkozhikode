@@ -2,9 +2,8 @@ import React, { useRef, useState } from "react";
 import html2canvas from "html2canvas";
 import toast from "react-hot-toast";
 
-function ImageDownload({ results,category,item, color, image }) {
+function ImageDownload({ results, category, item, color, image, positions }) {
   const downloadImageRef = useRef(null);
-
 
   // Define class names in variables
   const containerClass = "mx-auto drop-shadow-xl   ";
@@ -42,7 +41,7 @@ function ImageDownload({ results,category,item, color, image }) {
   return (
     <>
       {results?.result && (
-         <div className="">
+        <div className="">
           <div
             className="relative mx-auto drop-shadow-xl  text-center   h-[350px] w-[350px] mb-24"
             ref={downloadImageRef}
@@ -53,12 +52,20 @@ function ImageDownload({ results,category,item, color, image }) {
               src={image}
               alt="Background"
             />
-            <div className="absolute top-[140px] left-[45px]  right-0 bottom-0 flex flex-col ">
+            <div
+              className="absolute  flex flex-col"
+           style={{
+  top: `${positions.y}px`,
+  left: `${positions.x}px`,
+}}
+            >
               <div className="text-start ">
                 <div className={`text-[10px] poppins-light ${color}`}>
                   {category}
                 </div>
-                <div className={`text-[13px] poppins-medium -mt-[6px]  ${color}`}>
+                <div
+                  className={`text-[13px] poppins-medium -mt-[6px]  ${color}`}
+                >
                   {item}
                 </div>
               </div>
@@ -67,7 +74,9 @@ function ImageDownload({ results,category,item, color, image }) {
                 {results?.result.map((result, index) => (
                   <div key={index}>
                     <div className={`text-[11px] poppins-semibold ${color}`}>
-                      {result?.firstPrize || result?.secPrize || result?.thirdPrize
+                      {result?.firstPrize ||
+                      result?.secPrize ||
+                      result?.thirdPrize
                         ? (
                             result?.firstPrize ||
                             result?.secPrize ||
@@ -78,9 +87,12 @@ function ImageDownload({ results,category,item, color, image }) {
                         : ""}
                     </div>
 
-                    <div className={`text-[8px] mb-[7px] -mt-[2px] poppins-light ${color}`}>
-                      {result?.firstTeam || result?.secTeam || result?.thirdTeam
-                      }
+                    <div
+                      className={`text-[8px] mb-[7px] -mt-[2px] poppins-light ${color}`}
+                    >
+                      {result?.firstTeam ||
+                        result?.secTeam ||
+                        result?.thirdTeam}
                     </div>
                   </div>
                 ))}

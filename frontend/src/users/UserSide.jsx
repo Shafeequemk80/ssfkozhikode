@@ -11,6 +11,7 @@ import VideoShow from "./VideoShow.jsx";
 import Footer from "../components/Footer.jsx";
 import { getFeatures } from "../api/apiCall.js";
 import Theme from "./Theme.jsx";
+import Maps from "./Maps.jsx";
 
 
 function UserSide() {
@@ -40,6 +41,7 @@ function UserSide() {
     results: <Results />,
     teamPoints: <TeamPoint />,
     theme: <Theme/>,
+    map: <Maps/>,
   };
 
   // Show scroll-to-top button logic
@@ -62,7 +64,6 @@ function UserSide() {
   return (
     <>
       <Home />
-
       <div>
         {Object.entries(featureComponents).map(([key, Component]) =>
           isFeatureEnabled(key) ? <div key={key}>{Component}</div> : null

@@ -185,73 +185,64 @@ const getData = async (req, res) => {
 
 const addImage = async (req, res) => {
   try {
-    let colors = req.body.color.split(",");
+    const colors = req.body.color?.split(",") || [];
+    let positions = req.body.positions?.split(",") || [];
+    positions = JSON.parse(req.body.positions);
     const existingImages = await ImageData.findOne();
 
-    let updatedImages = {
-      image1: { image: null, color: colors[0] || "light" },
-      image2: { image: null, color: colors[1] || "light" },
-      image3: { image: null, color: colors[2] || "light" },
-    };
-
     const images = ["image1", "image2", "image3"];
+    const updatedImages = {};
+
+    images.forEach((imageKey, index) => {
+      const file = req.files?.[imageKey]?.[0];
+
+      updatedImages[imageKey] = {
+        image: null,
+        public_id: null,
+        positions: positions[index] || "",
+        color: colors[index] || "light",
+      };
+
+      if (file) {
+        updatedImages[imageKey].image = file.path;
+        updatedImages[imageKey].public_id = file.filename;
+      }
+    });
 
     if (existingImages) {
-      // If images already exist, delete the old files if new ones are provided
+      // Update existing document
       images.forEach((imageKey, index) => {
-        if (req.files[imageKey]) {
-          if (existingImages[imageKey].image) {
-            cloudinary.uploader.destroy(
-              existingImages[imageKey].public_id,
-              (error, result) => {
-                if (error) {
-                  console.error("Error deleting image:", error);
-                }
-              }
-            );
-          }
-          updatedImages[imageKey].image = req.files[imageKey][0].path;
-          updatedImages[imageKey].public_id = req.files[imageKey][0].filename;
-        } else {
-          updatedImages[imageKey].image = existingImages[imageKey].image;
-          updatedImages[imageKey].public_id =
-            existingImages[imageKey].public_id;
+        const file = req.files?.[imageKey]?.[0];
+
+        if (file && existingImages[imageKey]?.public_id) {
+          cloudinary.uploader.destroy(existingImages[imageKey].public_id, (err) => {
+            if (err) console.error("Error deleting image:", err);
+          });
         }
 
-        // Update color only if provided
-        if (colors[index]) {
-          updatedImages[imageKey].color = colors[index];
-        }
+        existingImages[imageKey].image =
+          updatedImages[imageKey].image || existingImages[imageKey].image;
+
+        existingImages[imageKey].public_id =
+          updatedImages[imageKey].public_id || existingImages[imageKey].public_id;
+
+        existingImages[imageKey].positions = updatedImages[imageKey].positions;
+        existingImages[imageKey].color = updatedImages[imageKey].color;
       });
-
-      // Update the existing document
-      existingImages.image1 = updatedImages.image1;
-      existingImages.image2 = updatedImages.image2;
-      existingImages.image3 = updatedImages.image3;
 
       const updatedData = await existingImages.save();
       return res.json({ data: updatedData });
     } else {
-      // If no existing images, create a new record
-      images.forEach((imageKey, index) => {
-        if (req.files[imageKey]) {
-          updatedImages[imageKey].image = req.files[imageKey][0].path;
-          updatedImages[imageKey].public_id = req.files[imageKey][0].filename;
-        }
-      });
-
+      // Create new image record
       const newImageData = new ImageData(updatedImages);
       await newImageData.save();
       return res.json({ data: newImageData });
     }
   } catch (error) {
-    console.log(error.message);
-    res
-      .status(500)
-      .json({ message: "Internal server error", error: error.message });
+    console.error("Add Image Error:", error);
+    res.status(500).json({ message: "Internal server error", error: error.message });
   }
 };
-
 const showImage = async (req, res) => {
   try {
     const savedData = await ImageData.find();
@@ -436,6 +427,7 @@ const resetFeature = async (req, res) => {
       { name: "teamPoints", enabled: true },
       { name: "gallery", enabled: true },
       { name: "theme", enabled: false },
+      { name: "map", enabled: false },
     ]);
 
     res.status(200).json({

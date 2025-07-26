@@ -4,6 +4,7 @@ import { getDataServer, getResultImage } from "../api/apiCall";
 import { useState } from "react";
 import { getCategory, getItem } from "../api/cateGoryAnditem";
 import ImageDownlad from "./ImageDownlad.jsx";
+
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 function Results() {
@@ -15,6 +16,8 @@ function Results() {
   const [results, setResults] = useState(null);
   const [images, setImages] = useState([null, null, null]);
   const [color, setColor] = useState([null, null, null]);
+      const [positions, setPositions] = useState([  null,null,null  ]);
+
 
   useEffect(() => {
     async function fetchData() {
@@ -48,9 +51,14 @@ function Results() {
           data.image3.color ? data.image3.color : null,
         ];
 
+         const newPositions = [
+          data.image1.positions ? data.image1.positions : null,
+          data.image2.positions ? data.image2.positions : null,
+          data.image3.positions ? data.image3.positions : null,
+        ]
         setImages(newImages);
         setColor(newColor);
-
+  setPositions(newPositions)
         // Logging the URLs directly
         newImages.forEach((image, index) => {
           if (image) {
@@ -174,32 +182,36 @@ function Results() {
               </div>
             </div>
 
-            <div
-              className={`grid grid-cols-1 px-4 py-6 sm:px-8 sm:py-8 overflow-scroll hide-scrollbar::-webkit-scrollbar hide-scrollbar  lg:px-20 lg:py-12 lg:grid-cols-2 xl:grid-cols-3 ${
-                results ? "bg-slate-100" : ""
-              } lg:px-28 `}
+             <div
+
+              className={`grid grid-cols-1 px-4 py-6 sm:px-8 sm:py-8 overflow-scroll hide-scrollbar::-webkit-scrollbar hide-scrollbar  lg:px-20 lg:py-12 lg:grid-cols-2 xl:grid-cols-3 ${results ? "bg-slate-100" : ""
+                } lg:px-28 `}
             >
               <ImageDownlad
                 results={results}
+                positions={positions[0]}
                 category={results?.category?.categoryName}
                 item={results?.item?.itemName}
                 image={images[0]}
-                color={`text-${color[0]}`}
+              color={color[0]}
               />
               <ImageDownlad
                 results={results}
+                positions={positions[1]}
                 category={results?.category?.categoryName}
                 item={results?.item?.itemName}
                 image={images[1]}
-                color={`text-${color[1]}`}
+               color={color[1]}
               />
               <ImageDownlad
                 results={results}
+                 positions={positions[2]}
                 category={results?.category?.categoryName}
                 item={results?.item?.itemName}
                 image={images[2]}
-                color={`text-${color[2]}`}
+                color={color[2]}
               />
+
             </div>
           </>
         )}

@@ -1,8 +1,16 @@
 const mongoose = require("mongoose");
 
+const PositionSchema = new mongoose.Schema({
+  x: { type: Number, default: 45 },
+  y: { type: Number, default: 140},
+}, { _id: false }); // disable _id for subdocs in array
+
 const ImageSchema = new mongoose.Schema({
   image: { type: String, default: "defaultImage.jpg" },
   color: { type: String, default: "light" },
+  positions: {
+    type: PositionSchema
+  },
   public_id: { type: String, default: "adfjkadsfjkal" }
 });
 
