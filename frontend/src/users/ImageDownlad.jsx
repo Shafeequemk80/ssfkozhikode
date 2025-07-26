@@ -60,20 +60,20 @@ function ImageDownload({ results, category, item, color, image, positions }) {
 }}
             >
               <div className="text-start ">
-                <div className={`text-[10px] roboto-regular  ${color}`}>
+                <div className={`text-[10px] montserrat-semibold  ${color}`}>
                   {category}
                 </div>
                 <div
-                  className={`text-[15px] font-fractul roboto-bold  -mt-[6px]  ${color}`}
+                  className={`text-[15px] montserrat-bold -mt-[6px]  ${color}`}
                 >
                   {item}
                 </div>
               </div>
 
-              <div className="text-start mt-[12px] pl-[10px]">
+              <div className="text-start mt-[10px] pl-[10px]">
                 {results?.result.map((result, index) => (
                   <div key={index}>
-                    <div className={`text-[13px] roboto-medium  ${color}`}>
+                    <div className={`text-[12px] montserrat-bold ${color}`}>
                       {result?.firstPrize ||
                       result?.secPrize ||
                       result?.thirdPrize
@@ -88,11 +88,15 @@ function ImageDownload({ results, category, item, color, image, positions }) {
                     </div>
 
                     <div
-                      className={`text-[8px] -mt-[3px] mb-[6px] roboto-regular ${color}`}
+                      className={`text-[10px] -mt-[5px] mb-[6px] montserrat-regular ${color}`}
                     >
-                      {result?.firstTeam ||
+                      { result?.firstTeam ||
                         result?.secTeam ||
-                        result?.thirdTeam}
+                        result?.thirdTeam? (result?.firstTeam ||
+                        result?.secTeam ||
+                        result?.thirdTeam)
+                            .toLowerCase()
+                            .replace(/^\w/, (c) => c.toUpperCase()):''}
                     </div>
                   </div>
                 ))}

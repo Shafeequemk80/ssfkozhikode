@@ -2,9 +2,7 @@
 const YoutubeLink = require("../models/videoModel");
 const LiveLink = require("../models/LiveModel");
 const getYoutube = async (req, res) => {
-  const link = await YoutubeLink.find();
-
-  //   .sort({ "createdAt": -1 });
+  const link = await YoutubeLink.find().sort({ "createdAt": -1 });
 
   res.json({ url: link });
 };
