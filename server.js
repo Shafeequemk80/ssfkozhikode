@@ -7,7 +7,7 @@ const cors = require("cors");
 const PORT = 5000 || process.env.PORT;
 
 
-const programRoutes = require("./router/Router.js"); // adjust path
+const programRoutes = require("./backend/router/Router.js"); // adjust path
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI);
 

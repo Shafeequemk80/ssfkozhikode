@@ -98,12 +98,12 @@ function ImageDownload({ results, category, item, color, image, positions }) {
                 ))}
               </div>
             </div>
-            {/* <button
+            <button
               onClick={handleDownloadImage}
               className="mt-4 px-6 py-2 bg-black text-white font-semibold rounded-md hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-opacity-50"
             >
               Download
-            </button> */}
+            </button>
           </div>
         </div>
       )}
