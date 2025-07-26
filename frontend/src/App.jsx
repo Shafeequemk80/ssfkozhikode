@@ -7,7 +7,6 @@ import {
 } from "react-router-dom";
 
 import "./global.css";
-import "./fonts.css";
 import "./index.css";
 import RightSidebarLayout from "./users/RightSidebarLayout.jsx";
 import AdminSide from "./admin/AddResults.jsx";
