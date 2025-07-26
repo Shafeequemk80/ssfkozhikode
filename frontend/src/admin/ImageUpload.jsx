@@ -159,12 +159,12 @@ const ImageUpload = () => {
                           className="flex flex-col"
                         >
                           <div
-                            className={`text-[10px] font-fractul font-regular ${color[index]}`}
+                            className={`text-[10px]  poppins-light ${color[index]}`}
                           >
                             Category Name
                           </div>
                           <div
-                            className={`text-[15px] font-fractul font-bold -mt-[6px] ${color[index]}`}
+                            className={`text-[15px]  poppins-medium  -mt-[6px] ${color[index]}`}
                           >
                             item Name
                           </div>
@@ -173,12 +173,12 @@ const ImageUpload = () => {
                             {[...Array(3)].map((_, idx) => (
                               <div key={idx}>
                                 <div
-                                  className={`text-[12px] font-fractul font-medium ${color[index]}`}
+                                  className={`text-[12px] poppins-semibold ${color[index]}`}
                                 >
                                   Participants Name
                                 </div>
                                 <div
-                                  className={`text-[8px] -mt-[2px] mb-[6px] font-fractul font-regular ${color[index]}`}
+                                  className={`text-[8px] -mt-[2px] mb-[6px] poppins-light ${color[index]}`}
                                 >
                                   Participants Team
                                 </div>
