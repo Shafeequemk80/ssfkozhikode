@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        fractul: ['Fractul', 'sans-serif'],
+        fractul: ['Roboto', 'sans-serif'],
       },
     },
   },

@@ -135,11 +135,9 @@ h1 {
 }
 
 
-.roboto-custom {
-  font-family: "Roboto", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400; /* Example: normal weight */
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100; /* Example: standard width */
-}
+.roboto-thin { font-family: "Roboto", sans-serif; font-weight: 100; }
+.roboto-light { font-family: "Roboto", sans-serif; font-weight: 300; }
+.roboto-regular { font-family: "Roboto", sans-serif; font-weight: 400; }
+.roboto-medium { font-family: "Roboto", sans-serif; font-weight: 500; }
+.roboto-bold { font-family: "Roboto", sans-serif; font-weight: 700; }
+.roboto-black { font-family: "Roboto", sans-serif; font-weight: 900; }

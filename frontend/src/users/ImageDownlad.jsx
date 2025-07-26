@@ -60,11 +60,11 @@ function ImageDownload({ results, category, item, color, image, positions }) {
 }}
             >
               <div className="text-start ">
-                <div className={`text-[10px] poppins-light ${color}`}>
+                <div className={`text-[10px] roboto-regular  ${color}`}>
                   {category}
                 </div>
                 <div
-                  className={`text-[13px] roboto-regular -mt-[6px]  ${color}`}
+                  className={`text-[15px] font-fractul roboto-bold  -mt-[6px]  ${color}`}
                 >
                   {item}
                 </div>
@@ -73,7 +73,7 @@ function ImageDownload({ results, category, item, color, image, positions }) {
               <div className="text-start mt-[12px] pl-[10px]">
                 {results?.result.map((result, index) => (
                   <div key={index}>
-                    <div className={`text-[11px] poppins-semibold ${color}`}>
+                    <div className={`text-[13px] roboto-medium  ${color}`}>
                       {result?.firstPrize ||
                       result?.secPrize ||
                       result?.thirdPrize
@@ -88,7 +88,7 @@ function ImageDownload({ results, category, item, color, image, positions }) {
                     </div>
 
                     <div
-                      className={`text-[8px] mb-[7px] -mt-[2px] poppins-light ${color}`}
+                      className={`text-[8px] -mt-[3px] mb-[6px] roboto-regular ${color}`}
                     >
                       {result?.firstTeam ||
                         result?.secTeam ||
@@ -98,12 +98,12 @@ function ImageDownload({ results, category, item, color, image, positions }) {
                 ))}
               </div>
             </div>
-            <button
+            {/* <button
               onClick={handleDownloadImage}
               className="mt-4 px-6 py-2 bg-black text-white font-semibold rounded-md hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-opacity-50"
             >
               Download
-            </button>
+            </button> */}
           </div>
         </div>
       )}
