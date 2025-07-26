@@ -3,15 +3,13 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
-    ],
+  ],
   theme: {
-     extend: {
+    extend: {
       fontFamily: {
         fractul: ['Fractul', 'sans-serif'],
       },
     },
   },
-  plugins: [
-  ],
+  plugins: [],
 }
-

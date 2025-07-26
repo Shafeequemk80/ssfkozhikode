@@ -164,7 +164,7 @@ const ImageUpload = () => {
                             Category Name
                           </div>
                           <div
-                            className={`text-[15px]  poppins-medium  -mt-[6px] ${color[index]}`}
+                            className={`text-[15px] font-fractul font-bold   -mt-[6px] ${color[index]}`}
                           >
                             item Name
                           </div>
@@ -173,7 +173,7 @@ const ImageUpload = () => {
                             {[...Array(3)].map((_, idx) => (
                               <div key={idx}>
                                 <div
-                                  className={`text-[12px] poppins-semibold ${color[index]}`}
+                                  className={`text-[12px] font-fractul font-semibold  ${color[index]}`}
                                 >
                                   Participants Name
                                 </div>

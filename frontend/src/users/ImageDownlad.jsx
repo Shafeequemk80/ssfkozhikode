@@ -64,7 +64,7 @@ function ImageDownload({ results, category, item, color, image, positions }) {
                   {category}
                 </div>
                 <div
-                  className={`text-[13px] poppins-medium -mt-[6px]  ${color}`}
+                  className={`text-[13px] roboto-regular -mt-[6px]  ${color}`}
                 >
                   {item}
                 </div>
